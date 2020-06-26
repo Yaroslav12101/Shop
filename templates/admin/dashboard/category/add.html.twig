@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <form method="post" action="{{ path('admin_add_category') }}">
+        <div class="form-group">
+            <label for="category_name">Category Name</label>
+            <input type="text" class="form-control" name="name" id="category_name">
+        </div>
+        <div class="form-group">
+            <label for="category_rating">Category Rating</label>
+            <select type="text" class="form-control" name="rating" id="category_rating">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+
+{% endblock %}

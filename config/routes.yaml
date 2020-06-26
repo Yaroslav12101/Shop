@@ -1,0 +1,90 @@
+hello:
+  path: /hello
+  controller: App\Controller\HelloController::index
+  methods: [GET]
+
+traidein:
+  path: /traidein
+  controller: App\Controller\HeaderNavController\TraideinController::index
+  methods: [GET]
+
+delivery:
+  path: /delivery
+  controller: App\Controller\HeaderNavController\DeliveryController::index
+  methods: [GET]
+
+warranty:
+  path: /warranty
+  controller: App\Controller\HeaderNavController\WarrantyController::index
+  methods: [GET]
+
+faq:
+  path: /faq
+  controller: App\Controller\HeaderNavController\FaqController::index
+  methods: [GET]
+
+contacts:
+  path: /contacts
+  controller: App\Controller\HeaderNavController\ContactsController::index
+  methods: [GET]
+
+support:
+  path: /support
+  controller: App\Controller\HeaderNavController\InformationController\SupportController::index
+  methods: [GET]
+
+reviews:
+  path: /reviews
+  controller: App\Controller\HeaderNavController\InformationController\ReviewsController::index
+  methods: [GET]
+
+refund:
+  path: /refund
+  controller: App\Controller\HeaderNavController\InformationController\RefundController::index
+  methods: [GET]
+
+purchase:
+  path: /purchase
+  controller: App\Controller\HeaderNavController\InformationController\PurchaseController::index
+  methods: [GET]
+
+aboutus:
+  path: /aboutus
+  controller: App\Controller\HeaderNavController\InformationController\AboutusController::index
+  methods: [GET]
+
+home:
+  path: /
+  controller: App\Controller\HomeController::index
+  methods: [GET]
+
+# Admin
+admin_dashboard:
+  path: /admin
+  controller: App\Admin\Controller\DashboardController::index
+  methods: [GET]
+
+admin_add_product:
+  path: /admin/product/add
+  controller: App\Admin\Controller\ProductController::add
+  methods: [GET, POST]
+
+admin_add_category:
+  path: /admin/category/add
+  controller: App\Admin\Controller\CategoryController::add
+  methods: [GET, POST]
+
+view:
+  path: /{slug}
+  controller: App\Controller\HomeController::view
+  methods: [GET]
+
+categories:
+  path: /category/
+  controller: App\Controller\CategoryController::products
+  methods: [GET]
+
+
+
+
+
