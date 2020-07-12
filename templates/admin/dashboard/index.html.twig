@@ -1,8 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="row">
-        <a href="{{ path('admin_add_product') }}">Add new product</a>
-        <a href="{{ path('admin_add_category') }}">Add new category</a>
-    </div>
+     <ul class="nav nav-tabs">
+        <li class="nav-item"><a href="{{ path('admin_add_product') }}" class="nav-link left topnav">Добавить продукт</a></li>
+        <li class="nav-item"><a href="{{ path('admin_add_category') }}" class="nav-link left topnav">Добавить категорию</a></li>
+        <li class="nav-item"><a href="{{ path('admin_users') }}" class="nav-link left topnav">Добавить пользователя</a></li>
+    </ul>
 {% endblock %}

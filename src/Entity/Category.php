@@ -3,6 +3,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -30,11 +32,14 @@ class Category
     private $rating ='5';
 
     /**
-     * @var array(Product) $products
-     *
-     * @ORM\OneToMany(targetEntity="App\Entity\Product", mappedBy="caterory")
+     * @ORM\OneToMany(targetEntity="App\Entity\Product", mappedBy="category")
      */
-    private iterable $products = [];
+    private $products;
+
+    public function __construct()
+    {
+        $this->products = new ArrayCollection();
+    }
 
     /**
      * @return mixed
@@ -77,9 +82,9 @@ class Category
     }
 
     /**
-     * @return array
+     * @return Collection|Product[]
      */
-    public function getProducts(): array
+    public function getProducts(): Collection
     {
         return $this->products;
     }

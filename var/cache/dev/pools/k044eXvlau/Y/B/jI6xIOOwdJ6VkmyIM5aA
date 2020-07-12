@@ -5,7 +5,13 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
         clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\Column'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Column')),
     ],
     null,
-    [],
+    [
+        'stdClass' => [
+            'unique' => [
+                true,
+            ],
+        ],
+    ],
     [
         $o[0],
     ],

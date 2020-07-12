@@ -58,6 +58,7 @@ class ComposerStaticInita708a5060b0be602d1e6f57757d34caf
             'Symfony\\Component\\VarDumper\\' => 28,
             'Symfony\\Component\\Validator\\' => 28,
             'Symfony\\Component\\Translation\\' => 30,
+            'Symfony\\Component\\Templating\\' => 29,
             'Symfony\\Component\\String\\' => 25,
             'Symfony\\Component\\Stopwatch\\' => 28,
             'Symfony\\Component\\Serializer\\' => 29,
@@ -126,6 +127,15 @@ class ComposerStaticInita708a5060b0be602d1e6f57757d34caf
             'Laminas\\ZendFrameworkBridge\\' => 28,
             'Laminas\\EventManager\\' => 21,
             'Laminas\\Code\\' => 13,
+        ),
+        'K' => 
+        array (
+            'Knp\\Component\\' => 14,
+            'Knp\\Bundle\\PaginatorBundle\\' => 27,
+        ),
+        'F' => 
+        array (
+            'FOS\\UserBundle\\' => 15,
         ),
         'E' => 
         array (
@@ -258,6 +268,10 @@ class ComposerStaticInita708a5060b0be602d1e6f57757d34caf
         'Symfony\\Component\\Translation\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/translation',
+        ),
+        'Symfony\\Component\\Templating\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/templating',
         ),
         'Symfony\\Component\\String\\' => 
         array (
@@ -495,6 +509,18 @@ class ComposerStaticInita708a5060b0be602d1e6f57757d34caf
         array (
             0 => __DIR__ . '/..' . '/laminas/laminas-code/src',
         ),
+        'Knp\\Component\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/knplabs/knp-components/src/Knp/Component',
+        ),
+        'Knp\\Bundle\\PaginatorBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/knplabs/knp-paginator-bundle/src',
+        ),
+        'FOS\\UserBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/friendsofsymfony/user-bundle',
+        ),
         'Egulias\\EmailValidator\\' => 
         array (
             0 => __DIR__ . '/..' . '/egulias/email-validator/src',
@@ -572,6 +598,16 @@ class ComposerStaticInita708a5060b0be602d1e6f57757d34caf
         ),
     );
 
+    public static $prefixesPsr0 = array (
+        'T' => 
+        array (
+            'Twig_' => 
+            array (
+                0 => __DIR__ . '/..' . '/twig/twig/lib',
+            ),
+        ),
+    );
+
     public static $classMap = array (
         'Collator' => __DIR__ . '/..' . '/symfony/intl/Resources/stubs/Collator.php',
         'IntlDateFormatter' => __DIR__ . '/..' . '/symfony/intl/Resources/stubs/IntlDateFormatter.php',
@@ -588,6 +624,7 @@ class ComposerStaticInita708a5060b0be602d1e6f57757d34caf
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInita708a5060b0be602d1e6f57757d34caf::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInita708a5060b0be602d1e6f57757d34caf::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInita708a5060b0be602d1e6f57757d34caf::$prefixesPsr0;
             $loader->classMap = ComposerStaticInita708a5060b0be602d1e6f57757d34caf::$classMap;
 
         }, null, ClassLoader::class);

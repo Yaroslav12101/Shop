@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+    <div class="row">
+        <table class="table">
+            <thead>
+            <td>Id</td>
+            <td>UserName</td>
+            <td>Actions</td>
+            </thead>
+            <tbody>
+            {% if users is defined %}
+                    {% for user in users %}
+                        <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>
+                            <button type="button" data-id="{{ user.id }}" class="btn-success promote-user">
+                                Assign Admin
+                            </button>
+                        </td>
+                    {% endfor %}
+                        </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="/js/promoteUser.js" data-route="{{ path('admin_assing_users_rols') }}"></script>
+{% endblock %}

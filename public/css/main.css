@@ -93,7 +93,18 @@ hr {
     margin: 2rem;
 }
 
-img.card-img-top {
+img.home {
     height: 10rem;
     width: 10rem;
 }
+
+div.container {
+    font-family: "Open Sans", Arial, "Helvetica CY", "Nimbus Sans L", sans-serif;
+    color: #717171;
+    margin-top: 5rem;
+}
+
+div.product {
+    margin-top: 5rem;
+}
+

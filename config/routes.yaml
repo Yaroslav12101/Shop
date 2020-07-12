@@ -58,7 +58,9 @@ home:
   controller: App\Controller\HomeController::index
   methods: [GET]
 
+
 # Admin
+
 admin_dashboard:
   path: /admin
   controller: App\Admin\Controller\DashboardController::index
@@ -74,15 +76,37 @@ admin_add_category:
   controller: App\Admin\Controller\CategoryController::add
   methods: [GET, POST]
 
+admin_users:
+  path: /adnin/user
+  controller: App\Admin\Controller\UserController::index
+  methods: [GET, POST]
+
+admin_assing_users_rols:
+  path: /adnin/user/promote
+  controller: App\Admin\Controller\UserController::promote
+  methods: [GET, POST]
+
+add_product_to_cart:
+  path: /
+  controller: App\Controller\CartController::add
+  methods: [GET, POST]
+
+
+cart:
+  path: /basket
+  controller: App\Controller\CartController::index
+  methods: [GET, POST]
+
+categories:
+  path: /category {id}
+  controller: App\Controller\CategoryController::products
+  methods: [GET]
+
 view:
   path: /{slug}
   controller: App\Controller\HomeController::view
   methods: [GET]
 
-categories:
-  path: /category/
-  controller: App\Controller\CategoryController::products
-  methods: [GET]
 
 
 

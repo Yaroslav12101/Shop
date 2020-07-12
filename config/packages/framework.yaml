@@ -10,6 +10,10 @@ framework:
         handler_id: null
         cookie_secure: auto
         cookie_samesite: lax
+        cookie_lifetime: 3600
+
+    templating:
+        engines: ['twig', 'php']
 
     #esi: true
     #fragments: true

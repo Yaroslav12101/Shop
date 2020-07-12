@@ -11,8 +11,17 @@ use App\Entity\Category;
 
 class CategoryController extends AbstractController
 {
+    private EntityManagerInterface $em;
+
+    public function __construct(EntityManagerInterface $em)
+    {
+        $this->em = $em;
+    }
+
     public function add(Request $request, EntityManagerInterface $em)
     {
+        $categories = $this->em->getRepository(Category:: class)->findAll();
+
         if ($request->getMethod() === 'POST') {
             $category = new Category();
             $category->setName($request->request->get('name'));
@@ -22,10 +31,9 @@ class CategoryController extends AbstractController
 
             return $this->redirectToRoute('home');
         } else {
-            return $this->render('admin/dashboard/category/add.html.twig');
+            return $this->render('admin/dashboard/category/add.html.twig', [
+                'categories' => $categories
+            ]);
         }
     }
-}
-{
-
 }

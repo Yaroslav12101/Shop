@@ -13,6 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 class Product
 {
+    public const ITEMS_PER_PAGE = 15;
     /**
      * orm/id => primary key auto_increment
      * @ORM\Id
@@ -52,12 +53,11 @@ class Product
     private $specifications;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", unique=true)
      */
     private $slug;
 
     /**
-     * @var array(Category) $categories
      * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="products")
      */
     private $category;
@@ -71,6 +71,12 @@ class Product
      * @ORM\Column(type="string")
      */
     private $images;
+
+    /**
+     * @var array(Order) $order
+     * @ORM\ManyToOne(targetEntity="App\Entity\Order", inversedBy="product_id")
+     */
+    private $order;
 
 //    /**
 //     * Product constructor.
@@ -203,19 +209,22 @@ class Product
     }
 
     /**
-     * @return mixed
+     * @return Category|null
      */
-    public function getCategory()
+    public function getCategory(): ?Category
     {
         return $this->category;
     }
 
     /**
-     * @param mixed $category
+     * @param Category|null $category
+     * @return $this
      */
-    public function setCategory($category): void
+    public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
     }
 
     /**
@@ -262,6 +271,24 @@ class Product
     {
         $this->images->removeElemrnts($image);
     }
+
+    /**
+     * @return array
+     */
+    public function getOrder(): array
+    {
+        return $this->order;
+    }
+
+    /**
+     * @param array $order
+     */
+    public function setOrder(array $order): void
+    {
+        $this->order = $order;
+    }
+
+
 
 
 

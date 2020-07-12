@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            {% for product in products %}
+            <div id="my-cart">
+                <p>{{ product.id }}</p>
+                {#{{ dump(products) }}#}
+            </div>
+            {% endfor %}
+            <table class="table">
+                <thead>
+               {# <td>Номер заказа</td>#}
+                <td>Товар</td>
+                <td>Цена</td>
+                </thead>
+                <tbody>
+                {% for product in products %}
+                        <tr>
+                        <td>{{ product.id }}</td>
+                        <td>{{ product.price }}</td>
+                        <td>
+                            <button type="button" class="btn-success promote-user">
+                                Оформить заказ
+                            </button>
+                        </td>
+                {% endfor %}
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="/js/cart_view.js" data-route="{{ path('add_product_to_cart') }}"></script>
+{% endblock %}

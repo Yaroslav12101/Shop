@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            {% set i=0 %}
+            {% for product in pagination %}
+            {% if i % 3 ==0 %}
+        </div>
+        <div class="row">
+            {% endif %}
+            <div class="col-4">
+                <div class="card col" style="width: 20rem;">
+                    <a href="{{ path('view', {slug: product.slug}) }}"><img src="images/products/{{ product.slug }}/{{ product.images }}" class="card-img-top home" title="{{ product.name }}" alt="{{ product.name }}"></a>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="{{ path('view', {slug: product.slug}) }}">{{ product.name }}</a>
+                        </h4>
+                        <p class="card-text">{{ product.price }} грн</p>
+                        <p class="card-text">{{ product.specifications }}</p>
+                        {% if product.category is defined %}
+                            <div class="categoryinput">
+                                {% for category in product.category %}
+                                    <span><a href="{{ path('categories', {id: category.id}) }}"></a></span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        <form method="post" action="{{ path('add_product_to_cart') }}"></form>
+                        <a class="btn btn-success product-link" data-id="{{ product.id }}">Купить</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% set i = i + 1 %}
+            {% if i == pagination.count %}
+        </div>
+        {% endif %}
+        {% endfor %}
+        <div class="navigation">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+    </div>
+
+{% endblock %}
